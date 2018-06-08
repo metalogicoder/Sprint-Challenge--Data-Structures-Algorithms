@@ -14,6 +14,23 @@ class BinarySearchTree {
 
   breadthFirstForEach(cb) {
     /* Your code here */
+    const queue = [this];
+
+    function populateQueue(node) {
+      if (node.left) {
+        queue.push(node.left);
+        populateQueue(node.left);
+      }
+      if (node.right) {
+        queue.push(node.right);
+        populateQueue(node.right);
+      }
+    }
+
+    populateQueue(this);
+
+    queue.forEach(node => cb(node.value));
+    // SOOOO CLOOOOSSEEE!!!!!
   }
 
   insert(value) {
