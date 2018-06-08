@@ -8,6 +8,7 @@ const heapsort = (arr) => {
     tweak to make tests pass.
   */
   
+  const returnArr = arr.slice();
   let array_length;
   function heap_root(input, i) {
     const left = 2 * i + 1;
@@ -46,8 +47,9 @@ const heapsort = (arr) => {
       heap_root(input, 0);
     }
   }
-  heapSort(arr);
-  return arr;
+
+  heapSort(returnArr);
+  return returnArr;
 };
 
 
